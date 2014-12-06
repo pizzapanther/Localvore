@@ -5,7 +5,7 @@ urlpatterns = patterns('',
   # Examples:
   # url(r'^blog/', include('blog.urls')),
 
-  url(r'^admin/', include(admin.site.urls)),
+  url(r'^backend/admin/', include(admin.site.urls)),
 )
 
 import os

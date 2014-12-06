@@ -5,6 +5,8 @@ localvore.config(function ($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {controller: 'HomePageCtrl', templateUrl: '/tpl/homepage.html'})
     .when('/about', {controller: 'AboutCtrl', templateUrl: '/tpl/about.html'})
+    .when('/places/', {controller: 'PlacesCtrl', templateUrl: '/tpl/places.html'})
+    .when('/places/:categorySlug', {controller: 'PlacesCtrl', templateUrl: '/tpl/places.html'})
     .otherwise({redirectTo: '/'});
     
   $locationProvider.html5Mode(true);

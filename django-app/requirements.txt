@@ -7,3 +7,4 @@ sorl-thumbnail==11.12
 simplejson==3.6.5
 requests==2.5.0
 geopy==1.4.0
+gunicorn==19.1.1

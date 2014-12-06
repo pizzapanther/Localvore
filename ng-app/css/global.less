@@ -11,13 +11,29 @@ a {
   text-decoration: none;
 }
 
+.view-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 md-card {
   background-color: @bg-color;
-  padding: 20px;
-  max-width: 1170px;
+  padding: 12px;
   
   > .mt0 {
     margin-top: 0;
+  }
+  
+  &.full {
+    width: 100%;
+  }
+  
+  &.pad {
+    padding: 20px;
+  }
+  
+  p {
+    max-width: 980px;
   }
 }
 
@@ -33,6 +49,12 @@ md-card {
   }
 }
 
+.card33 {
+  md-card {
+    width: ~'calc(33% - 16px)';
+  }
+}
+
 footer {
   text-align: center;
   margin: 20px auto;
@@ -45,4 +67,18 @@ footer {
 
 .logo-font {
   font-family: @logo-font;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.pull-right {
+  float: right;
+  display: block;
+}
+
+.pull-left {
+  float: left;
+  display: block;
 }

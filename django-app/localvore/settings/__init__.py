@@ -26,6 +26,7 @@ TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = [
   'pizzapanther.koding.io',
+  '.pizzapanther.koding.io',
   'localvore.guide',
   '.localvore.guide',
 ]
@@ -104,6 +105,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/home/www/Localvore/static/'
 
 from localvore.settings.private.main import *
 
