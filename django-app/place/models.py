@@ -3,6 +3,7 @@ from media.models import Image
 
 class PlaceType(models.Model):
   name = models.CharField(max_length=64)
+  slug = models.CharField(max_length=64)
   __unicode__ = lambda self: self.name
 
 class Source(models.Model):

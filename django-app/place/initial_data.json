@@ -1,0 +1,2 @@
+Importing settings for durga
+[{"fields": {"name": "Farmers Markets", "slug": "farmers-markets"}, "model": "place.placetype", "pk": 1}, {"fields": {"name": "Restaurants", "slug": "restaurants"}, "model": "place.placetype", "pk": 2}, {"fields": {"name": "Boutiques & Markets", "slug": "boutiques-markets"}, "model": "place.placetype", "pk": 3}]
