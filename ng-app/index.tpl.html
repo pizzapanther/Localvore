@@ -3,6 +3,9 @@
   <head>
     <title>{{ title }}</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
     <script src="/components/angular/angular.min.js[[ ts ]]"></script>
     <script src="/components/angular-route/angular-route.min.js[[ ts ]]"></script>
     <script src="/components/angular-aria/angular-aria.min.js[[ ts ]]"></script>
@@ -13,9 +16,33 @@
     <script src="/js/app.js[[ ts ]]"></script>
     <script src="/js/controllers/homepage.js[[ ts ]]"></script>
     
+    <link href='//fonts.googleapis.com/css?family=Frijole|Roboto:400,700' rel='stylesheet' type='text/css'>
+    
+    <link rel="stylesheet" href="/components/angular-material/angular-material.min.css[[ ts ]]">
+    <link rel="stylesheet" href="/components/angular-material/themes/green-theme.css[[ ts ]]">
+    <link rel="stylesheet" href="/css/localvore.css[[ ts ]]">
+    
     <base href="/">
   </head>
   <body>
-    <div ng-view></div>
+    <div layout="column" layout-fill>
+      <md-toolbar md-scroll-shrink md-theme="green" class="md-green-theme">
+        <div class="md-toolbar-tools">
+          <span class="logo">
+            <a href="/">
+              <img src="/img/dino64.png" alt="">
+              Localvore.Guide
+            </a>
+          </span>
+          <span flex></span>
+          <md-button>
+            Right Bar Button
+          </md-button>
+        </div>
+      </md-toolbar>
+      <md-content>
+        <div ng-view></div>
+      </md-content>
+    </div>
   </body>
 </html>
