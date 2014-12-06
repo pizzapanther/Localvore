@@ -33,7 +33,7 @@ class Compile (pyinotify.ProcessEvent):
       self.build_html()
       
   def less_compile (self):
-    print("Processing localvore.less " + unicode(datetime.datetime.now()))
+    print("Processing localvore.less")
     subprocess.call(
       "lessc {ldir}/localvore.less {ldir}/localvore.css".format(ldir=self.ldir),
       shell=True
@@ -58,6 +58,7 @@ class Compile (pyinotify.ProcessEvent):
     fh = open(html, 'w')
     fh.write(content)
     fh.close()
+    print("Built: " + unicode(datetime.datetime.now()))
     
 def run_builder ():
   BASEDIR = os.path.abspath(os.path.dirname(__file__))
