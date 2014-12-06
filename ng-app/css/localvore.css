@@ -12,13 +12,25 @@ a {
   color: #42a5f5;
   text-decoration: none;
 }
+.view-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 md-card {
   background-color: #ffffff;
-  padding: 20px;
-  max-width: 1170px;
+  padding: 12px;
 }
 md-card > .mt0 {
   margin-top: 0;
+}
+md-card.full {
+  width: 100%;
+}
+md-card.pad {
+  padding: 20px;
+}
+md-card p {
+  max-width: 980px;
 }
 .md-toolbar-tools span.logo {
   font-family: 'Frijole', cursive;
@@ -27,6 +39,9 @@ md-card > .mt0 {
   height: 48px;
   margin-right: 5px;
   vertical-align: middle;
+}
+.card33 md-card {
+  width: calc(33% - 16px);
 }
 footer {
   text-align: center;
@@ -39,7 +54,48 @@ footer {
 .logo-font {
   font-family: 'Frijole', cursive;
 }
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.pull-right {
+  float: right;
+  display: block;
+}
+.pull-left {
+  float: left;
+  display: block;
+}
+@media (max-width: 948px) {
+  .card33 md-card {
+    width: calc(50% - 16px);
+  }
+}
+@media (max-width: 632px) {
+  .card33 md-card {
+    width: calc(100% - 16px);
+  }
+}
+#HomePage md-card.feature h1.mobile {
+  display: none;
+}
 #HomePage md-card.feature img {
   float: left;
   padding: 0 20px 0 0;
+}
+#HomePage a.more {
+  margin: 5px 0 5px 10px;
+}
+@media (max-width: 430px) {
+  #HomePage md-card.feature h1.normal {
+    display: none;
+  }
+  #HomePage md-card.feature h1.mobile {
+    display: block;
+    font-size: 1.7rem;
+  }
+}
+@media (max-width: 330px) {
+  #HomePage md-card.feature h1.mobile {
+    font-size: 1.3rem;
+  }
 }
