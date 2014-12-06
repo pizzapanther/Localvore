@@ -28,6 +28,7 @@ ALLOWED_HOSTS = [
   '.localvore.guide',
 ]
 
+SECRET_KEY = "HOT DOG JELLY BEAN I AM A SECRET KEY shhh don't tell anyone"
 
 # Application definition
 
@@ -39,6 +40,9 @@ INSTALLED_APPS = (
   'django.contrib.messages',
   'django.contrib.staticfiles',
   'django.contrib.gis',
+  'account',
+  'media',
+  'place'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -66,6 +70,7 @@ ROOT_URLCONF = 'localvore.urls'
 
 WSGI_APPLICATION = 'localvore.wsgi.application'
 
+AUTH_USER_MODEL = 'account.User'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases

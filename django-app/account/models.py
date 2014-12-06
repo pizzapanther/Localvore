@@ -1,0 +1,43 @@
+from django.db import models
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.utils.translation import ugettext_lazy as _
+
+class UserManager(BaseUserManager):
+  def _create_user(self, username,  email, password, is_staff, is_superuser, **extra_fields):
+    if not email:
+      raise ValueError('The given email must be set')
+    email = self.normalize_email(email)
+    user = self.model(username=username, email=email, is_staff=is_staff, is_active=True,
+                      is_superuser=is_superuser, **extra_fields)
+    user.set_password(password)
+    user.save(using=self._db)
+    return user
+
+  def create_user(self, username, email, password=None, **extra_fields):
+    return self._create_user(username, email, password, False, False,**extra_fields)
+
+  def create_superuser(self, username, email, password, **extra_fields):
+    return self._create_user(username, email, password, True, True,**extra_fields)
+
+class User(AbstractBaseUser):
+  username = models.CharField(max_length=254,unique=True)
+  first_name = models.CharField(max_length=30, blank=True)
+  last_name = models.CharField(max_length=30, blank=True)
+  email = models.EmailField(blank=True)
+  is_staff = models.BooleanField(_('staff status'), default=False)
+  is_superuser = models.BooleanField(default=False)
+  is_active = models.BooleanField(_('active'), default=True)
+  date_joined = models.DateTimeField(_('date joined'),auto_now_add=True)
+
+  objects = UserManager()
+
+  USERNAME_FIELD = 'username'
+  REQUIRED_FIELDS = ['email']
+
+  def get_full_name(self):
+    full_name = '%s %s' % (self.first_name, self.last_name)
+    return full_name.strip()
+
+  def get_short_name(self):
+    return self.first_name
+
