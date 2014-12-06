@@ -1,0 +1,4 @@
+pyinotify==0.9.4
+psycopg2==2.5.4
+django==1.7.1
+pytz==2014.10

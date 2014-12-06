@@ -1,0 +1,23 @@
+{
+  "name": "Localvore",
+  "version": "0.0.0",
+  "homepage": "https://github.com/pizzapanther/Localvore",
+  "authors": [
+    "Paul Bailey <paul.m.bailey@gmail.com>"
+  ],
+  "description": "Your guide to local businesses",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.5",
+    "angular-material": "~0.6.0"
+  }
+}
