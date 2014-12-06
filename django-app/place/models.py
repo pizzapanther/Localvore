@@ -12,6 +12,7 @@ class Source(models.Model):
 class GeoModel(models.Model):
   name = models.CharField(max_length=128)
   geopoint = models.PointField()
+  __unicode__ = lambda self: self.name
 
 class City(GeoModel):
   pass
@@ -24,6 +25,6 @@ class Place(GeoModel):
   description = models.TextField(null=True,blank=True)
   placetypes = models.ManyToManyField(PlaceType)
   images = models.ManyToManyField(Image)
-  image = models.ManyToManyField(Image,related_name="+")
+  image = models.ForeignKey(Image,related_name="+",null=True,blank=True)
   source = models.ManyToManyField(Source)
-  __unicode__ = lambda self: self.name
+  source_url = models.URLField(null=True,blank=True)

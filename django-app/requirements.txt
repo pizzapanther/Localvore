@@ -4,3 +4,6 @@ django==1.7.1
 pytz==2014.10
 pillow==2.6.1
 sorl-thumbnail==11.12
+simplejson==3.6.5
+requests==2.5.0
+geopy==1.4.0

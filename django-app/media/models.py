@@ -8,8 +8,7 @@ class Image(models.Model):
 
   #instagramphoto = models.ForeignKey(InstagramPhoto,null=True,blank=True)
   def save(self,*args,**kwargs):
-    self.filename = self.filename or str(self.file).split('/')[-1]
-    self.name = self.name or self.filename
-    super(FileModel,self).save(*args,**kwargs)
+    self.name = self.name or self.src
+    super(Image,self).save(*args,**kwargs)
   class Meta:
     ordering = ('name',)
