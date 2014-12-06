@@ -2,6 +2,25 @@ button, html, input, select, textarea {
   font-family: @body-font;
 }
 
+body {
+  background-color: @body-bg-color;
+}
+
+a {
+  color: @link-color;
+  text-decoration: none;
+}
+
+md-card {
+  background-color: @bg-color;
+  padding: 20px;
+  max-width: 1170px;
+  
+  > .mt0 {
+    margin-top: 0;
+  }
+}
+
 .md-toolbar-tools {
   span.logo {
     font-family: @logo-font;
@@ -12,4 +31,18 @@ button, html, input, select, textarea {
       vertical-align: middle;
     }
   }
+}
+
+footer {
+  text-align: center;
+  margin: 20px auto;
+  max-width: 1170px;
+}
+
+.clear-fix {
+  clear: both;
+}
+
+.logo-font {
+  font-family: @logo-font;
 }

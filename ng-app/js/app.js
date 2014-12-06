@@ -4,6 +4,7 @@ var localvore = angular.module("localvore", ['ngRoute']);
 localvore.config(function ($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {controller: 'HomePageCtrl', templateUrl: '/tpl/homepage.html'})
+    .when('/about', {controller: 'AboutCtrl', templateUrl: '/tpl/about.html'})
     .otherwise({redirectTo: '/'});
     
   $locationProvider.html5Mode(true);

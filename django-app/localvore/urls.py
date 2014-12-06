@@ -12,12 +12,9 @@ import os
 from django.conf import settings
 
 if settings.DEBUG:
-  from django.views.static import serve
-  
   ng_path = os.path.join(os.path.dirname(settings.BASE_DIR), 'ng-app')
   urlpatterns += patterns('',
-    url(r'^$', 'localvore.views.index_serve', kwargs={'document_root': ng_path}),
-    url(r'^(?P<path>.*)$', serve, kwargs={'document_root': ng_path})
+    url(r'.*', 'localvore.views.index_serve', kwargs={'document_root': ng_path})
   )
   
   
