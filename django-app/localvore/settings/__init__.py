@@ -24,6 +24,7 @@ TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = [
   'pizzapanther.koding.io',
+  '.pizzapanther.koding.io',
   'localvore.guide',
   '.localvore.guide',
 ]
