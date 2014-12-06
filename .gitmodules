@@ -1,0 +1,3 @@
+[submodule "django-app/localvore/settings/private"]
+	path = django-app/localvore/settings/private
+	url = git@github.com:pizzapanther/Private-Settings.git

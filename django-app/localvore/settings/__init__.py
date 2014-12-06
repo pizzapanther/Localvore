@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 """
 Django settings for localvore project.
 
@@ -10,14 +12,11 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ehmwa5l+h(qaeisc$1)f*z4d^&c*p^6g07w)2!7jlbu(f1@@&+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -81,3 +80,25 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+from localvore.settings.private.main import *
+
+import sys
+import socket
+
+machine = socket.gethostname().split('.')[0]
+
+try:
+  istr = 'localvore.settings.private.' + machine
+  tmp = __import__(istr)
+  mod = sys.modules[istr]
+
+except ImportError:
+  print('No settings module for {}'.format(machine))
+
+else:
+  print('Importing settings for {}'.format(machine))
+  for setting in dir(mod):
+    if setting == setting.upper():
+      setattr(sys.modules[__name__], setting, getattr(mod, setting))
+      
