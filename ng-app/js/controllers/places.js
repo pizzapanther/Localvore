@@ -121,3 +121,28 @@ localvore.controller("PlacesCtrl", function ($scope, $routeParams, $http) {
   
   $scope.get_location();
 });
+
+localvore.controller("PlaceCtrl", function ($scope, $routeParams, $http, $timeout) {
+  $scope.loading = false;
+  $scope.place = null;
+  $scope.id = $routeParams.placeId;
+  
+  $scope.load_place = function () {
+    $scope.loading = true;
+    $scope.place = null;
+    $scope.map = null;
+    
+    var url = '/backend/api/' + $scope.id + '.json';
+    
+    $http.get(url)
+    .success(function (data) {
+      $scope.place = data;
+      $scope.loading = false;
+      
+      console.log($scope.place.geopoint[1], $scope.place.geopoint[0]);
+    });
+  };
+  
+  $scope.load_place();
+});
+

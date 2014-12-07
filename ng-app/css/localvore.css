@@ -192,9 +192,34 @@ md-input-group.long input {
 #Places ul.cats li:first-child:after {
   content: "";
 }
+#Place img {
+  max-width: 45%;
+  float: right;
+  padding: 0 0 20px 20px;
+}
+#Place h1 {
+  margin-bottom: 5px;
+}
+#Place #map-canvas img {
+  max-width: 100%;
+  margin: 0 auto;
+  float: none;
+  display: block;
+}
+@media (max-width: 800px) {
+  #Place img {
+    padding: 0 0 10px 10px;
+  }
+}
 @media (max-width: 500px) {
   #Places md-card img {
     max-width: 90px;
     max-height: 90px;
+  }
+}
+@media (max-width: 600px) {
+  #Place img {
+    max-width: 100%;
+    padding: 0 0 20px 0;
   }
 }

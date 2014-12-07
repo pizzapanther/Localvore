@@ -7,6 +7,7 @@ localvore.config(function ($routeProvider, $locationProvider) {
     .when('/about', {controller: 'AboutCtrl', templateUrl: '/tpl/about.html'})
     .when('/places/', {controller: 'PlacesCtrl', templateUrl: '/tpl/places.html'})
     .when('/places/:categorySlug', {controller: 'PlacesCtrl', templateUrl: '/tpl/places.html'})
+    .when('/place/:placeId', {controller: 'PlaceCtrl', templateUrl: '/tpl/place.html'})
     .otherwise({redirectTo: '/'});
     
   $locationProvider.html5Mode(true);
@@ -25,6 +26,9 @@ localvore.run(function ($rootScope) {
   };
 });
 
+localvore.filter('urlencode', function ($window) {
+  return $window.encodeURIComponent;
+});
 
 function apply_updates ($scope) {
   if(!$scope.$$phase) {
