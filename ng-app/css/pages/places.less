@@ -28,6 +28,32 @@
   .no-results {
     text-align: center;
   }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  ul.cats {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+    li {
+      float: left;
+      margin: 0 10px 10px 0;
+      padding: 0;
+      
+      &:after {
+        content: ",";
+      }
+      
+      &:last-child, &:first-child {
+        &:after {
+          content: "";
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 500px) {

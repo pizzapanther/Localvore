@@ -18,9 +18,13 @@ localvore.controller("PlacesCtrl", function ($scope, $routeParams, $http) {
   }
   
   else {
-    $scope.set_title('Listings');
-    $scope.page_title = 'Listings';
+    $scope.set_title('All Listings');
+    $scope.page_title = 'All Listings';
   }
+  
+  $scope.hide_me = function (slug) {
+    return slug === $scope.cat;
+  };
   
   $scope.reset_location = function () {
     navigator.geolocation.getCurrentPosition($scope.set_location)

@@ -111,6 +111,9 @@ md-input-group.long input {
   width: 100%;
   max-width: 400px;
 }
+.hidden {
+  display: none;
+}
 @media (max-width: 948px) {
   .card33 md-card {
     width: calc(50% - 16px);
@@ -168,6 +171,26 @@ md-input-group.long input {
 }
 #Places .no-results {
   text-align: center;
+}
+#Places h1 {
+  margin-bottom: 20px;
+}
+#Places ul.cats {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#Places ul.cats li {
+  float: left;
+  margin: 0 10px 10px 0;
+  padding: 0;
+}
+#Places ul.cats li:after {
+  content: ",";
+}
+#Places ul.cats li:last-child:after,
+#Places ul.cats li:first-child:after {
+  content: "";
 }
 @media (max-width: 500px) {
   #Places md-card img {
