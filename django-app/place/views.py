@@ -23,4 +23,4 @@ def places_json (request):
 
 def place_detail_json (request,pk):
   place = get_object_or_404(Place,pk=pk)
-  return HttpResponse(dumps(place.as_json))
+  return HttpResponse(dumps(place.full_json))
