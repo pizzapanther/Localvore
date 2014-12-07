@@ -17,26 +17,18 @@
         <strong>Koding Hackathon judges</strong>, see our <a href="/about">About Page</a> 
         for a more detailed description of our project.
       </p>
+      <p>
+        <h2><a href="/places/">Browse All Places &raquo;</a></h2>
+      </p>
     </md-card>
   </div>
-  <div layout="row" layout-align="center start" class="flex-wrap card33">
-    <md-card>
-      <a class="more pull-right" href="/places/farmers-markets">
+  <div layout="row" layout-fill layout-align="center" class="flex-wrap card33">
+    <md-card flex ng-repeat="cat in cats">
+      <a class="more pull-right" href="/places/{{ cat.slug }}">
         View More &raquo;
       </a>
-      <h2 class="mt0">Farmers Markets</h2>
-    </md-card>
-    <md-card>
-      <a class="more pull-right" href="/places/restaurants">
-        View More &raquo;
-      </a>
-      <h2 class="mt0">Restaurants</h2>
-    </md-card>
-    <md-card>
-      <a class="more pull-right" href="/places/stores">
-        View More &raquo;
-      </a>
-      <h2 class="mt0">Boutiques &amp; Markets</h2>
+      <h2 class="mt0">{{ cat.name }}</h2>
+      <ng-include src="'/tpl/widgets/featured.html'"></ng-include>
     </md-card>
   </div>
 </div>

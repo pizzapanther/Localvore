@@ -13,6 +13,28 @@
   a.more {
     margin: 5px 0 5px 10px;
   }
+  
+  ul.featured {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+    li {
+      margin: 0;
+      padding: 13px 3px 10px 3px;
+      border-bottom: 1px dotted @line-color;
+      
+      &:last-child {
+        border-bottom: 0;
+      }
+      
+      img {
+        float: right;
+        width: 75px;
+        padding: 0 0 10px 10px;
+      }
+    }
+  }
 }
 
 @media (max-width: 430px) {

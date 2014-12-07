@@ -126,6 +126,7 @@ localvore.controller("PlaceCtrl", function ($scope, $routeParams, $http, $timeou
   $scope.loading = false;
   $scope.place = null;
   $scope.id = $routeParams.placeId;
+  $scope.set_title('Place ' + $scope.id);
   
   $scope.load_place = function () {
     $scope.loading = true;
@@ -138,6 +139,7 @@ localvore.controller("PlaceCtrl", function ($scope, $routeParams, $http, $timeou
     .success(function (data) {
       $scope.place = data;
       $scope.loading = false;
+      $scope.set_title($scope.place.name);
     });
   };
   

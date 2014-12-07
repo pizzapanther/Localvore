@@ -134,6 +134,24 @@ md-input-group.long input {
 #HomePage a.more {
   margin: 5px 0 5px 10px;
 }
+#HomePage ul.featured {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#HomePage ul.featured li {
+  margin: 0;
+  padding: 13px 3px 10px 3px;
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.12);
+}
+#HomePage ul.featured li:last-child {
+  border-bottom: 0;
+}
+#HomePage ul.featured li img {
+  float: right;
+  width: 75px;
+  padding: 0 0 10px 10px;
+}
 @media (max-width: 430px) {
   #HomePage md-card.feature h1.normal {
     display: none;

@@ -12,7 +12,7 @@ class Image(models.Model):
       'name': self.name,
       'url': self.src.url,
       'url_medium': get_thumbnail(self.src,"300x300").url,
-      'url_small': get_thumbnail(self.src,"128x128").url,
+      'url_small': get_thumbnail(self.src,"128x128", crop='center').url,
     }
 
   #instagramphoto = models.ForeignKey(InstagramPhoto,null=True,blank=True)

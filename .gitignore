@@ -60,4 +60,5 @@ docs/_build/
 target/
 
 django-app/localvore/settings/private
+localvore.sql
 

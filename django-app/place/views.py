@@ -39,5 +39,5 @@ def featured_places (request):
   for placetype in PlaceType.objects.all():
     jsons = [p.as_json for p in Place.objects.filter(placetype=placetype).order_by('-yelp_rating')[:10]]
     random.shuffle(jsons)
-    out[placetype.name] = jsons
+    out[placetype.slug] = jsons
   return HttpResponse(dumps(out))
