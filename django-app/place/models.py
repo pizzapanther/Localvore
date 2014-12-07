@@ -1,5 +1,6 @@
 from django.contrib.gis.db import models
 from django.conf import settings
+from django.template.defaultfilters import striptags
 from media.models import Image
 
 import yelp
@@ -58,6 +59,7 @@ class Place(GeoModel):
   @property
   def as_json(self):
     _d = {k: getattr(self,k) for k in ['name','id','address','zipcode','url','description','source_url']}
+    _d['description'] = striptags(_d['description'])
     _d['geopoint'] = self.geopoint.tuple
     _d['city'] = str(self.city)
     _d['placetypes'] = [pt.as_json for pt in self.placetypes.all()]
