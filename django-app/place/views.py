@@ -10,8 +10,11 @@ from geopy.geocoders import GoogleV3
 
 def places_json (request):
   places = Place.objects.all()
-  if 'placetype' in request.GET:
+  
+  placetype = request.GET.get('placetype', '')
+  if placetype:
     places = places.filter(placetypes__slug=placetype)
+    
   lat = request.GET.get('lat',29.7604267) #y
   lon = request.GET.get('lon',-95.3698028) #x
   geopoint = fromstr('POINT(%s %s)'%(lon,lat))

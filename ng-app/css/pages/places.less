@@ -1,7 +1,5 @@
 #Places {
-  table {
-    border-collapse: collapse;
-    border: 0;
+  md-card {
     width: 100%;
     
     h3 {
@@ -9,8 +7,10 @@
     }
     
     img {
-      max-width: 128px;
-      max-height: 128px;
+      max-width: 148px;
+      max-height: 148px;
+      float: right;
+      padding: 0 0 10px 10px;
     }
     
     p {
@@ -20,12 +20,22 @@
       max-width: 700px;
     }
     
-    td {
-      border-bottom: 1px dotted @line-color;
-      padding: 10px 5px;
-      
-      &:last-child {
-        text-align: center;
+    .lat-lon {
+      margin-bottom: 20px;
+    }
+  }
+  
+  .no-results {
+    text-align: center;
+  }
+}
+
+@media (max-width: 500px) {
+  #Places {
+    md-card {
+      img {
+        max-width: 90px;
+        max-height: 90px;
       }
     }
   }

@@ -1,5 +1,5 @@
 
-var localvore = angular.module("localvore", ['ngRoute']);
+var localvore = angular.module("localvore", ['ngRoute', 'ngMaterial']);
 
 localvore.config(function ($routeProvider, $locationProvider) {
   $routeProvider

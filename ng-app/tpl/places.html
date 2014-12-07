@@ -1,25 +1,62 @@
 <div id="Places">
-  <div layout="row" layout-align="center start">
+  <div layout="row" layout-align="center start" class="flex-wrap">
     <md-card class="full pad">
-      <div ng-if="loading" ng-include="'/tpl/widgets/loading.html'"></div>
-      <table ng-if="places">
-        <tr ng-repeat="place in places track by $index">
-          <td>
-            <h3>
-              <a href="/place/{{ place.id }}">{{ place.name }}</a>
-            </h3>
-            <div class="address">
-              <div>{{ place.address }}</div>
-              <p>
-                {{ place.description }}
-              </p>
-            </div>
-          </td>
-          <td>
-            <img ng-if="place.image.url" src="{{ place.image.url }}" alt="">
-          </td>
-        </tr>
-      </table>
+      <h1 class="mt0">{{ page_title }}</h1>
+      <ul>
+        <li>
+          <a href=""></a>
+        </li>
+      </ul>
+      <div class="lat-lon" ng-if="location.lat">
+        <strong>
+          Location: 
+          <span class="address" ng-if="address_entered()">
+            <span ng-if="location.address">{{ location.address }}, </span>
+            <span ng-if="location.city">{{ location.city }}</span>
+            <span ng-if="location.state">{{ location.state }}</span> - 
+          </span> 
+          {{ location.lat }}, {{ location.lon }}
+        </strong>
+      </div>
+      <div class="row">
+        <md-button class="md-raised" ng-click="reset_location()">
+          <i class="fa fa-crosshairs"></i> Detect My Location
+        </md-button>
+        <md-button class="md-raised" ng-click="display_form()">
+          <i class="fa fa-pencil"></i> Enter A Location
+        </md-button>
+      </div>
+      <hr ng-if="show_form">
+      <form ng-if="show_form" ng-submit="find_address()">
+        <div class="row">
+          <md-text-float label="Address" ng-model="form.address" class="long"></md-text-float>
+        </div>
+        <div class="row">
+          <md-text-float label="City" ng-model="form.city"></md-text-float>
+          <md-text-float label="State" ng-model="form.state"></md-text-float>
+        </div>
+        <div class="row submit">
+          <md-button class="md-raised md-primary" type="submit">
+            <i class="fa fa-caret-square-o-right"></i> Submit
+          </md-button>
+        </div>
+      </form>
+    </md-card>
+    <div ng-if="loading" ng-include="'/tpl/widgets/loading.html'"></div>
+    <md-card class="full pad" ng-repeat="place in places track by $index">
+      <img ng-if="place.image.url" src="{{ place.image.url }}" alt="">
+      <h3>
+        <a href="/place/{{ place.id }}">{{ place.name }}</a>
+      </h3>
+      <div class="address">
+        <div>{{ place.address }}</div>
+        <p>
+          {{ place.description }}
+        </p>
+      </div>
+    </md-card>
+    <md-card class="full pad no-results" ng-if="places.length === 0 && !loading">
+      <h1><i class="fa fa-paw fa-3x"></i> No Results Found</h1>
     </md-card>
   </div>
   
