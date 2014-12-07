@@ -28,6 +28,6 @@ Here provide couple screenshots of your project. You can use a tool like https:/
 
 ## APIs used
 
-- **Yelp API**: used 
-- Google Maps
+- **Yelp API**: used to look up business ratings
+- **Google Maps**: used to produce maps and look up addresses and geospatial coordinates
 
