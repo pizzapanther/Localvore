@@ -21,7 +21,7 @@ def places_json (request):
   geopoint = fromstr('POINT(%s %s)'%(lon,lat))
   #miles = request.GET.get('miles', 10)
   #places = places.filter(geopoint__distance_lte=(geopoint,D(mi=miles))).distance(geopoint).order_by('distance')
-  places = places.distance(geopoint).order_by('distance')[:200]
+  places = places.distance(geopoint).order_by('distance')[:100]
   geolocator = GoogleV3()
   return HttpResponse(dumps([p.as_json for p in places]))
 

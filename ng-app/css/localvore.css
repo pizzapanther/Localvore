@@ -42,7 +42,7 @@ md-card p {
   vertical-align: middle;
 }
 .card33 md-card {
-  width: calc(33% - 16px);
+  min-width: 350px;
 }
 footer {
   text-align: center;
@@ -61,7 +61,11 @@ hr {
   font-family: 'Frijole', cursive;
 }
 .flex-wrap {
+  -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
+}
+.flex-wrap > md-card {
+  -webkit-flex: auto;
 }
 .pull-right {
   float: right;
@@ -114,14 +118,24 @@ md-input-group.long input {
 .hidden {
   display: none;
 }
-@media (max-width: 948px) {
+@media (max-width: 800px) {
   .card33 md-card {
-    width: calc(50% - 16px);
+    min-width: 500px;
   }
 }
 @media (max-width: 632px) {
   .card33 md-card {
-    width: calc(100% - 16px);
+    min-width: calc(100% - 16px);
+    width: 100%;
+  }
+}
+@media (max-width: 350px) {
+  .md-toolbar-tools span.logo {
+    font-size: 1.0rem;
+  }
+  .md-toolbar-tools span.logo img {
+    width: 32px;
+    height: 32px;
   }
 }
 #HomePage md-card.feature h1.mobile {
@@ -133,6 +147,9 @@ md-input-group.long input {
 }
 #HomePage a.more {
   margin: 5px 0 5px 10px;
+}
+#HomePage .card33 {
+  max-width: 100%;
 }
 #HomePage ul.featured {
   list-style-type: none;

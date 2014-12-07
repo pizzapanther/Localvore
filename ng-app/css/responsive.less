@@ -1,8 +1,8 @@
 
-@media (max-width: 948px) {
+@media (max-width: 800px) {
   .card33 {
     md-card {
-      width: ~'calc(50% - 16px)';
+      min-width: 500px;
     }
   }
 }
@@ -10,7 +10,21 @@
 @media (max-width: 632px) {
   .card33 {
     md-card {
-      width: ~'calc(100% - 16px)';
+      min-width: ~'calc(100% - 16px)';
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .md-toolbar-tools {
+    span.logo {
+      font-size: 1.0rem;
+      
+      img {
+        width: 32px;
+        height: 32px;
+      }
     }
   }
 }

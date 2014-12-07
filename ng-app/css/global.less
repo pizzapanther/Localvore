@@ -51,7 +51,7 @@ md-card {
 
 .card33 {
   md-card {
-    width: ~'calc(33% - 16px)';
+    min-width: 350px;
   }
 }
 
@@ -76,7 +76,12 @@ hr {
 }
 
 .flex-wrap {
+  -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
+  
+  > md-card {
+    -webkit-flex: auto;
+  }
 }
 
 .pull-right {

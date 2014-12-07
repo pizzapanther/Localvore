@@ -22,8 +22,8 @@
       </p>
     </md-card>
   </div>
-  <div layout="row" layout-fill layout-align="center" class="flex-wrap card33">
-    <md-card flex ng-repeat="cat in cats">
+  <div layout="row" layout-align="center" class="flex-wrap card33">
+    <md-card ng-repeat="cat in cats" flex="33">
       <a class="more pull-right" href="/places/{{ cat.slug }}">
         View More &raquo;
       </a>
