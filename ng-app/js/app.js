@@ -24,3 +24,10 @@ localvore.run(function ($rootScope) {
     }
   };
 });
+
+
+function apply_updates ($scope) {
+  if(!$scope.$$phase) {
+    $scope.$apply();
+  }
+}

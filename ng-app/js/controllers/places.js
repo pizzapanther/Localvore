@@ -1,9 +1,10 @@
 var CAT_SLUGS = {}
 CAT_SLUGS['farmers-markets'] = 'Farmers Markets';
 
-localvore.controller("PlacesCtrl", function ($scope, $routeParams) {
+localvore.controller("PlacesCtrl", function ($scope, $routeParams, $http) {
   $scope.location = {};
   $scope.cat = $routeParams.categorySlug;
+  $scope.places = [];
   
   if ($scope.cat) {
     $scope.set_title(CAT_SLUGS[$scope.cat]);
@@ -24,7 +25,23 @@ localvore.controller("PlacesCtrl", function ($scope, $routeParams) {
   };
   
   $scope.set_location = function (position) {
-    console.log(position);
+    $scope.location.lat = position.coords.latitude;
+    $scope.location.lon = position.coords.longitude;
+    
+    $scope.location.address = '';
+    $scope.location.city = '';
+    $scope.location.state = '';
+    
+    apply_updates($scope);
+    $scope.get_places();
+  };
+  
+  $scope.get_places = function () {
+    $http.get('/backend/api/places.json?lat=' + $scope.location.lat + '&lon=' + $scope.location.lon)
+    .success(function (data) {
+      $scope.places = data;
+      console.log($scope.places);
+    });
   };
   
   $scope.get_location();
