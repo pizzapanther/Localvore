@@ -3,10 +3,11 @@ from django.contrib.gis.measure import D
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 
-from place.models import Place
+from place.models import Place, PlaceType
 
 from json import dumps
 from geopy.geocoders import GoogleV3
+import random
 
 def places_json (request):
   places = Place.objects.all()
@@ -35,3 +36,11 @@ def place_detail_json (request,pk):
   geopoint = fromstr('POINT(%s %s)'%(lon,lat))
   json['distance'] = place.geopoint.distance(geopoint)*0.00062137119223733
   return HttpResponse(dumps(json))
+
+def featured_places (request):
+  out = {}
+  for placetype in PlaceType.objects.all():
+    jsons = [p.as_json for p in Place.objects.filter(placetype=placetype).order_by('-yelp_rating')[:10]]
+    random.shuffle(jsons)
+    out[placetype.name] = jsons
+  return HttpResponse(dumps(out))
