@@ -1,8 +1,22 @@
 <div id="Places">
   <div layout="row" layout-align="center start">
     <md-card class="full pad">
-      places
-      <i class="fa fa-spinner fa-spin"></i>
+      <div ng-if="loading" ng-include="'/tpl/widgets/loading.html'"></div>
+      <table ng-if="places">
+        <tr ng-repeat="place in places track by $index">
+          <td>
+            <h3>
+              <a href="/place/{{ place.id }}">{{ place.name }}</a>
+            </h3>
+            <div class="address">
+              <div>{{ place.address }}</div>
+            </div>
+          </td>
+          <td>
+            <img ng-if="place.image.url" src="{{ place.image.url }}" alt="">
+          </td>
+        </tr>
+      </table>
     </md-card>
   </div>
   

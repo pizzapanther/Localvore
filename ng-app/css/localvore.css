@@ -65,6 +65,10 @@ footer {
   float: left;
   display: block;
 }
+.loading {
+  text-align: center;
+  margin: 20px 0;
+}
 @media (max-width: 948px) {
   .card33 md-card {
     width: calc(50% - 16px);
@@ -98,4 +102,11 @@ footer {
   #HomePage md-card.feature h1.mobile {
     font-size: 1.3rem;
   }
+}
+#Places table {
+  border-collapse: collapse;
+  border: 0;
+}
+#Places table h3 {
+  margin: 0 0 5px 0;
 }

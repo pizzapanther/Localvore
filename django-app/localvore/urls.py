@@ -16,7 +16,8 @@ from django.conf import settings
 if settings.DEBUG:
   ng_path = os.path.join(os.path.dirname(settings.BASE_DIR), 'ng-app')
   urlpatterns += patterns('',
-    url(r'.*', 'localvore.views.index_serve', kwargs={'document_root': ng_path})
+    url('^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+    url(r'.*', 'localvore.views.index_serve', {'document_root': ng_path}),
   )
   
   
