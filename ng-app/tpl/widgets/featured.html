@@ -1,0 +1,8 @@
+<ul class="featured">
+  <li ng-repeat="place in cat.featured">
+    <a href="/place/{{ place.id }}"><img ng-src="{{ place.image.url_small }}" alt=""></a>
+    <a href="/place/{{ place.id }}">{{ place.name }}</a><br>
+    {{ place.address }}
+    <div class="clear-fix"></div>
+  </li>
+</ul>
