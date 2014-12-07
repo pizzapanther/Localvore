@@ -2,7 +2,7 @@
 
 ## Description
 
-[![Koding Hackathon](/about/badge.png?raw=true "Koding Hackathon")](https://koding.com/Hackathon)
+[![Koding Hackathon](https://raw.githubusercontent.com/pizzapanther/Localvore/master/about/badge.png "Koding Hackathon")](https://koding.com/Hackathon)
 
 A brief introduction to your project. It should include the motivation behind the project and also how it addresses the hackthon theme you've selected.
 
