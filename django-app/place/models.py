@@ -39,5 +39,7 @@ class Place(GeoModel):
     _d['geopoint'] = self.geopoint.tuple
     _d['city'] = str(self.city)
     _d['placetypes'] = [pt.as_json for pt in self.placetypes.all()]
-    _d['images'] = [i.url for i in self.images.all()]
+    _d['images'] = [i.as_json for i in self.images.all()]
+    if self.image:
+      _d['image'] = self.image.as_json
     return _d

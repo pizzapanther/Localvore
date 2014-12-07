@@ -5,10 +5,13 @@ class Image(models.Model):
   src = models.ImageField(upload_to='uploads/photos/%Y-%m', null=True,max_length=200)
   upload_dt = models.DateTimeField(auto_now_add=True)
   rejected = models.BooleanField(default=False)
+  @property
+  def as_json(self):
+    return {
+      'name': self.name,
+      'url': self.src.url,
+    }
 
   #instagramphoto = models.ForeignKey(InstagramPhoto,null=True,blank=True)
-  def save(self,*args,**kwargs):
-    self.name = self.name or self.src
-    super(Image,self).save(*args,**kwargs)
   class Meta:
     ordering = ('name',)

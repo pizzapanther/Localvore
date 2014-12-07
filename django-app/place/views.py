@@ -1,6 +1,7 @@
 from django.contrib.gis.geos import fromstr
 from django.contrib.gis.measure import D
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 
 from place.models import Place
 
@@ -18,3 +19,7 @@ def places_json (request):
   places = places.filter(geopoint__distance_lte=(geopoint,D(mi=miles))).distance(geopoint).order_by('distance')
   geolocator = GoogleV3()
   return HttpResponse(dumps([p.as_json for p in places]))
+
+def place_detail_json (request,pk):
+  place = get_object_or_404(Place,pk=pk)
+  return HttpResponse(dumps(place.as_json))
