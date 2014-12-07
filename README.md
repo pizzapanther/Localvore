@@ -1,4 +1,6 @@
-# Localvore.Guide: Team Hairball's Koding Global Virtual Hackathon's Submission
+# Localvore.Guide
+
+[Team Hairball's](https://github.com/koding/global.hackathon/blob/master/Teams/TeamHairball/ABOUT.md) Koding Global Virtual Hackathon's Submission
 
 ## Description
 
