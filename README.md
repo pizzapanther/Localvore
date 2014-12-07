@@ -12,6 +12,11 @@ To help local businesses grow, we see two areas of improvement. First, local bus
 
 The hackathon theme Localvore.Guide applies to is "Problems facing our planet" because we feel keeping a thriving local economy is key to sustaining the world as software eats the world and businesses become more efficient. We need to help local businesses and entrepreneurs thrive. Localvore.Guide does this by presenting local businesses in a manner that makes them easy to find and engage with using maps and geographically sorted data.
 
+## The Tech
+
+Localvore.Guide uses a Django backend powered with PostGIS so we can do fast geospatial queries to find the best places near you. On the frontend we've implemented Material Design with AngularJS. While right now the app is
+hosted on the web, this combination allows us to package the app for Android and iOS by just expanding our build process.
+
 ## Screenshots
 
 Here provide couple screenshots of your project. You can use a tool like https://monosnap.com/welcome or https://droplr.com to take a screenshot. Animated gifs are also welcome.
