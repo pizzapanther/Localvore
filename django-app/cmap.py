@@ -8,11 +8,11 @@ django.setup()
 
 from media.models import Image
 from place.models import Place, City, Source
-import simplejson, requests, time
+import json, requests, time
 from geopy.geocoders import GoogleV3
 
 f = open('localvore/settings/private/export-376.json','r')
-places = simplejson.loads(f.read())
+places = json.loads(f.read())
 f.close()
 
 _dir = settings.MEDIA_ROOT

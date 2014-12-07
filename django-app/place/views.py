@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404
 
 from place.models import Place
 
-from simplejson import dumps
+from json import dumps
 from geopy.geocoders import GoogleV3
 
 def places_json (request):

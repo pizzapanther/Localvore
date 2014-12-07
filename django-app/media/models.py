@@ -1,4 +1,5 @@
 from django.db import models
+from sorl.thumbnail import get_thumbnail
 
 class Image(models.Model):
   name = models.CharField(null=True,blank=True,max_length=500)
@@ -10,6 +11,8 @@ class Image(models.Model):
     return {
       'name': self.name,
       'url': self.src.url,
+      'url_medium': get_thumbnail(self.src,"300x300").url,
+      'url_small': get_thumbnail(self.src,"128x128").url,
     }
 
   #instagramphoto = models.ForeignKey(InstagramPhoto,null=True,blank=True)

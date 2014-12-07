@@ -45,7 +45,8 @@ INSTALLED_APPS = (
   'django.contrib.gis',
   'account',
   'media',
-  'place'
+  'place',
+  'sorl.thumbnail'
 )
 
 MIDDLEWARE_CLASSES = (
