@@ -138,8 +138,6 @@ localvore.controller("PlaceCtrl", function ($scope, $routeParams, $http, $timeou
     .success(function (data) {
       $scope.place = data;
       $scope.loading = false;
-      
-      console.log($scope.place.geopoint[1], $scope.place.geopoint[0]);
     });
   };
   
