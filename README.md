@@ -2,6 +2,8 @@
 
 [Team Hairball's](https://github.com/koding/global.hackathon/blob/master/Teams/TeamHairball/ABOUT.md) Koding Global Virtual Hackathon's Submission
 
+Koding.com Hosted Site URL: http://dev.localvore.guide/
+
 ## Description
 
 [![Koding Hackathon](https://raw.githubusercontent.com/pizzapanther/Localvore/master/about/badge.png "Koding Hackathon")](https://koding.com/Hackathon)
