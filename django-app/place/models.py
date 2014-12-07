@@ -19,7 +19,7 @@ class GeoModel(models.Model):
   __unicode__ = lambda self: self.name
 
 class City(GeoModel):
-  pass
+  objects = models.GeoManager()
 
 class Place(GeoModel):
   address = models.CharField(max_length=128)
@@ -32,6 +32,7 @@ class Place(GeoModel):
   image = models.ForeignKey(Image,related_name="+",null=True,blank=True)
   source = models.ManyToManyField(Source)
   source_url = models.URLField(null=True,blank=True)
+  objects = models.GeoManager()
   @property
   def as_json(self):
     _d = {k: getattr(self,k) for k in ['name','id','address','zipcode','url','description','source_url']}
