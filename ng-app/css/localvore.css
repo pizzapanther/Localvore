@@ -106,7 +106,25 @@ footer {
 #Places table {
   border-collapse: collapse;
   border: 0;
+  width: 100%;
 }
 #Places table h3 {
   margin: 0 0 5px 0;
+}
+#Places table img {
+  max-width: 128px;
+  max-height: 128px;
+}
+#Places table p {
+  font-style: italic;
+  max-height: 3.5em;
+  overflow: hidden;
+  max-width: 700px;
+}
+#Places table td {
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.12);
+  padding: 10px 5px;
+}
+#Places table td:last-child {
+  text-align: center;
 }
