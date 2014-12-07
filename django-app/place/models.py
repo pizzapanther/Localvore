@@ -31,7 +31,7 @@ class Place(GeoModel):
   zipcode = models.CharField(max_length=16)
   url = models.URLField(null=True,blank=True)
   description = models.TextField(null=True,blank=True)
-  placetypes = models.ManyToManyField(PlaceType)
+  placetype = models.ForeignKey(PlaceType,null=True,blank=True)
   images = models.ManyToManyField(Image)
   image = models.ForeignKey(Image,related_name="+",null=True,blank=True)
   source = models.ManyToManyField(Source)
