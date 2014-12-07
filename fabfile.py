@@ -27,7 +27,7 @@ def deploy():
     
   with cd('/home/www/Localvore/django-app/'):
     sudo('git rev-parse --short HEAD > release.txt', user=WEB_USER)
-    sudo('su -c "pip install -r requirements.txt --user" {}'.format(WEB_USER))
+    sudo('su -c "pip install -r requirements.txt --user" {}|grep -v "upgrade to upgrade"'.format(WEB_USER))
     sudo('su -c "./manage.py migrate" {}'.format(WEB_USER))
     sudo('su -c "./manage.py collectstatic --noinput" {}'.format(WEB_USER))
     
