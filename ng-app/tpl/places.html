@@ -52,7 +52,7 @@
     </md-card>
     <div ng-if="loading" ng-include="'/tpl/widgets/loading.html'"></div>
     <md-card class="full pad" ng-repeat="place in places track by $index">
-      <img ng-if="place.image.url" src="{{ place.image.url }}" alt="">
+      <img ng-if="place.image.url" ng-src="{{ place.image.url }}" alt="">
       <h3>
         <a href="/place/{{ place.id }}">{{ place.name }}</a>
       </h3>
