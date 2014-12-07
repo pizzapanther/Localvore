@@ -21,7 +21,9 @@ WEB_HOST = 'dev.localvore.guide'
 def deploy():
   with cd('/home/www/Localvore/'):
     sudo('git pull', user=WEB_USER)
-    sudo('git submodule update', user=WEB_USER)
+    
+  with cd('/home/www/Private-Settings/'):
+    sudo('git pull', user=WEB_USER)
     
   with cd('/home/www/Localvore/django-app/'):
     sudo('git rev-parse --short HEAD > release.txt', user=WEB_USER)
