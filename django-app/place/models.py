@@ -36,6 +36,7 @@ class Place(GeoModel):
   image = models.ForeignKey(Image,related_name="+",null=True,blank=True)
   source = models.ManyToManyField(Source)
   source_url = models.URLField(null=True,blank=True)
+  yelp_rating = models.FloatField(null=True,blank=True)
   yelp_url = models.URLField(null=True,blank=True)
 
   objects = models.GeoManager()
@@ -48,6 +49,10 @@ class Place(GeoModel):
       access_token_key=settings.YELP_TOKEN,
       access_token_secret=settings.YELP_TOKEN_SECRET)
     business = yelp_api.GetBusiness(self.yelp_url.split('/')[-1])
+    if not self.yelp_rating:
+      print business.rating
+      self.yelp_rating = business.rating
+      self.save()
     if not business.reviews:
       return
     out = []
@@ -58,14 +63,13 @@ class Place(GeoModel):
     return out
   @property
   def as_json(self):
-    _d = {k: getattr(self,k) for k in ['name','id','address','zipcode','url','description','source_url']}
+    _d = {k: getattr(self,k) for k in ['name','id','address','zipcode','url','description','source_url','yelp_rating']}
     _d['description'] = striptags(_d['description'])
     _d['geopoint'] = self.geopoint.tuple
     _d['city'] = str(self.city)
     _d['placetypes'] = []
     if self.placetype:
       _d['placetypes'] = [self.placetype.as_json]
-      
     _d['images'] = [i.as_json for i in self.images.all()]
     if self.image:
       _d['image'] = self.image.as_json

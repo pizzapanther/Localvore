@@ -7,7 +7,8 @@ urlpatterns = patterns('',
 
   url(r'^backend/admin/', include(admin.site.urls)),
   url(r'^backend/api/places.json$','place.views.places_json',name='places'),
-  url(r'^backend/api/(\d+).json$','place.views.place_detail_json',name='places'),
+  url(r'^backend/api/featured.json$','place.views.featured_places',name='featured_places'),
+  url(r'^backend/api/(\d+).json$','place.views.place_detail_json',name='place_detail'),
 )
 
 import os
