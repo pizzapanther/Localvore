@@ -67,7 +67,9 @@ class Place(GeoModel):
     _d['description'] = striptags(_d['description'])
     _d['geopoint'] = self.geopoint.tuple
     _d['city'] = str(self.city)
-    _d['placetype'] = str(self.placetype) or None
+    _d['placetypes'] = []
+    if self.placetype:
+      _d['placetypes'] = [self.placetype.as_json]
     _d['images'] = [i.as_json for i in self.images.all()]
     if self.image:
       _d['image'] = self.image.as_json

@@ -14,7 +14,7 @@ def places_json (request):
   
   placetype = request.GET.get('placetype', '')
   if placetype:
-    places = places.filter(placetypes__slug=placetype)
+    places = places.filter(placetype__slug=placetype)
     
   lat = request.GET.get('lat',29.7604267) #y
   lon = request.GET.get('lon',-95.3698028) #x
@@ -23,10 +23,7 @@ def places_json (request):
   #places = places.filter(geopoint__distance_lte=(geopoint,D(mi=miles))).distance(geopoint).order_by('distance')
   places = places.distance(geopoint).order_by('distance')[:200]
   geolocator = GoogleV3()
-  _jsons = [p.as_json for p in places]
-  for json,place in zip(_jsons,places):
-    json['distance'] = place.distance.m*0.00062137119223733
-  return HttpResponse(dumps(_jsons))
+  return HttpResponse(dumps([p.as_json for p in places]))
 
 def place_detail_json (request,pk):
   place = get_object_or_404(Place,pk=pk)
@@ -35,7 +32,7 @@ def place_detail_json (request,pk):
   lon = request.GET.get('lon',-95.3698028) #x
   geopoint = fromstr('POINT(%s %s)'%(lon,lat))
   json['distance'] = place.geopoint.distance(geopoint)*0.00062137119223733
-  return HttpResponse(dumps(json))
+  return HttpResponse(dumps(full_json))
 
 def featured_places (request):
   out = {}
