@@ -6,7 +6,7 @@ urlpatterns = patterns('',
   # url(r'^blog/', include('blog.urls')),
 
   url(r'^backend/admin/', include(admin.site.urls)),
-  url(r'^backend/api/places.json$','localvore.views.places_json',name='places'),
+  url(r'^backend/api/places.json$','place.views.places_json',name='places'),
 )
 
 import os
