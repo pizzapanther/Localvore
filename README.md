@@ -28,4 +28,6 @@ Here provide couple screenshots of your project. You can use a tool like https:/
 
 ## APIs used
 
-Provide a list of APIs you used in this project.
+- Yelp API
+- Google Maps
+
