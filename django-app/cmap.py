@@ -35,6 +35,7 @@ def pull_image(url):
   return rel_path
 
 if __name__ == "__main__":
+  Place.objects.all().delete()
   geolocator = GoogleV3()
   def reverse_geocode(value):
     google_address = geolocator.geocode(value)
@@ -55,7 +56,7 @@ if __name__ == "__main__":
       cities[name] = City.objects.get(name=name)
     except City.DoesNotExist:
       _g = reverse_geocode(name+', TX')
-      cities[name] = City(name=name,geopoint='POINT(%s %s)'%(_g['lat'],_g['lon']))
+      cities[name] = City(name=name,geopoint='POINT(%s %s)'%(_g['lon'],_g['lat']))
       cities[name].save()
       print "New city: %s"%name
   
@@ -63,7 +64,7 @@ if __name__ == "__main__":
   created = 0
   for json in places:
     try:
-      place = Place.objects.get(geopoint='POINT(%s %s)'%tuple(json['geopoint']))
+      place = Place.objects.get(geopoint='POINT(%s %s)'%tuple(json['geopoint'][::-1]))
       found += 1
     except Place.DoesNotExist:
       time.sleep(0.1)
@@ -80,7 +81,7 @@ if __name__ == "__main__":
       place = Place(
         name = json['title'],
         address = _g['address'].split(', '+city.name)[0],
-        geopoint = 'POINT(%s %s)'%tuple(json['geopoint']),
+        geopoint = 'POINT(%s %s)'%tuple(json['geopoint'][::-1]),
         image = image,
         city=city,
         zipcode = _g['address'].split('TX ')[-1].split(',')[0],
