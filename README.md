@@ -28,6 +28,6 @@ Here provide couple screenshots of your project. You can use a tool like https:/
 
 ## APIs used
 
-- Yelp API
+- **Yelp API**: used 
 - Google Maps
 
