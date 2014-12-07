@@ -1,0 +1,29 @@
+<div id="Place">
+  <div layout="row" layout-align="center start">
+    <md-card class="pad full" ng-if="place">
+      <img ng-if="place.image.url" ng-src="{{ place.image.url }}" alt="">
+      <h1 class="mt0">{{ place.name }}</h1>
+      <div class="address">
+        <div>
+          {{ place.address }}
+          <br>
+          <a href="https://maps.google.com?saddr=Current+Location&daddr={{ place.address|urlencode }}%2C%20{{ place.city|urlencode }}">Get Directions &raquo;</a>
+        </div>
+        <div class="yelp" ng-if="place.yelp_rating">
+          Yelp Rating: {{ place.yelp_rating }} Stars
+        </div>
+        <p>
+          {{ place.description }}
+        </p>
+      </div>
+      <div class="clear-fix"></div>
+      <hr>
+      <div id="map-canvas">
+        <a href="https://maps.google.com?saddr=Current+Location&daddr={{ place.address|urlencode }}%2C%20{{ place.city|urlencode }}">
+          <img ng-if="place" ng-src="https://maps.googleapis.com/maps/api/staticmap?center={{ place.address|urlencode }}%2C%20{{ place.city|urlencode }}&zoom=15&size=800x600&maptype=roadmap&markers=color:red%7C{{ place.address|urlencode }}%2C%20{{ place.city|urlencode }}&key=AIzaSyBXttgAyNmyhu-pLmkXV9-BCQHTSLbJunA" alt="">
+        </a>
+      </div>
+    </md-card>
+    <div ng-if="loading" ng-include="'/tpl/widgets/loading.html'"></div>
+  </div>
+</div>
