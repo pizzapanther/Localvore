@@ -32,7 +32,7 @@ def place_detail_json (request,pk):
   lon = request.GET.get('lon',-95.3698028) #x
   geopoint = fromstr('POINT(%s %s)'%(lon,lat))
   json['distance'] = place.geopoint.distance(geopoint)*0.00062137119223733
-  return HttpResponse(dumps(full_json))
+  return HttpResponse(dumps(place.full_json))
 
 def featured_places (request):
   out = {}
