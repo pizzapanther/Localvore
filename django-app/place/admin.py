@@ -5,6 +5,7 @@ from .models import PlaceType, Source, City, Place
 class PlaceAdmin(admin.ModelAdmin):
   list_display = ('name','placetype','desc')
   list_editable = ('placetype',)
+  list_filter = ('placetype',)
   search_fields = ('name',)
   
 admin.site.register(PlaceType)
