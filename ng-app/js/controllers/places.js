@@ -1,5 +1,7 @@
 var CAT_SLUGS = {};
 CAT_SLUGS['farmers-markets'] = 'Farmers Markets';
+CAT_SLUGS['stores'] = 'Stores';
+CAT_SLUGS['restaurants'] = 'Restaurants';
 
 localvore.controller("PlacesCtrl", function ($scope, $routeParams, $http) {
   $scope.location = {};
@@ -57,13 +59,13 @@ localvore.controller("PlacesCtrl", function ($scope, $routeParams, $http) {
     localStorage.setItem("search_location", JSON.stringify($scope.location));
     
     apply_updates($scope);
-    $scope.get_places();
+    $scope.get_places(true);
   };
   
-  $scope.get_places = function () {
+  $scope.get_places = function (skip_state) {
     var state = $scope.get_pushstate();
     
-    if (state) {
+    if (state && !skip_state) {
       $scope.places = state.data;
       $scope.location = state.location
     }
@@ -127,7 +129,7 @@ localvore.controller("PlacesCtrl", function ($scope, $routeParams, $http) {
         $scope.location.lon = results[0].geometry.location.lng();
         
         localStorage.setItem("search_location", JSON.stringify($scope.location));
-        $scope.get_places();
+        $scope.get_places(true);
       }
       
       else {

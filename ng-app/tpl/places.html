@@ -4,7 +4,7 @@
       <h1 class="mt0">{{ page_title }}</h1>
       <ul class="cats">
         <li>
-          <strong>Categories:</strong>
+          <strong>Filter by Category:</strong>
         </li>
         <li ng-if="cat">
           <a href="/places/">Everything</a>
@@ -39,7 +39,7 @@
         <div class="row">
           <md-text-float label="Address" ng-model="form.address" class="long"></md-text-float>
         </div>
-        <div class="row">
+        <div class="row flex-wrap">
           <md-text-float label="City" ng-model="form.city"></md-text-float>
           <md-text-float label="State" ng-model="form.state"></md-text-float>
         </div>
