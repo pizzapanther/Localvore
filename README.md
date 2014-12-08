@@ -23,8 +23,13 @@ hosted on the web, this combination allows us to package the app for Android and
 
 Here provide couple screenshots of your project. You can use a tool like https://monosnap.com/welcome or https://droplr.com to take a screenshot. Animated gifs are also welcome.
 
+Homepage - Featured Listings
 ![Homepage - Featured Listings](https://raw.githubusercontent.com/pizzapanther/Localvore/master/about/ss1.png "Homepage - Featured Listings")
+
+Restuarant Listings
 ![Restuarant Listings](https://raw.githubusercontent.com/pizzapanther/Localvore/master/about/ss2.png "Restuarant Listings")
+
+Listing Detail Page
 ![Listing Detail Page](https://raw.githubusercontent.com/pizzapanther/Localvore/master/about/ss3.png "Listing Detail Page")
 
 ## APIs used
