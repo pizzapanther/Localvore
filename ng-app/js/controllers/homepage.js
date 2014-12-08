@@ -13,8 +13,8 @@ localvore.controller("HomePageCtrl", function ($scope, $http) {
     
     if (state) {
       $scope.cats[0].featured = state['farmers-markets'];
-      $scope.cats[1].featured = state['stores'];
-      $scope.cats[2].restuarants = state['restuarants'];
+      $scope.cats[1].featured = state['restuarants'];
+      $scope.cats[2].featured = state['stores'];
     }
     
     else {
@@ -23,8 +23,8 @@ localvore.controller("HomePageCtrl", function ($scope, $http) {
       $http.get(url)
       .success(function (data) {
         $scope.cats[0].featured = data['farmers-markets'];
-        $scope.cats[1].featured = data['stores'];
-        $scope.cats[2].restuarants = data['restuarants'];
+        $scope.cats[1].featured = data['restuarants'];
+        $scope.cats[2].featured = data['stores'];
         
         $scope.set_pushstate(data);
       });
