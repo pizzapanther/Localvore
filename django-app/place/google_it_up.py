@@ -11,7 +11,7 @@ def _p(s):
   except UnicodeError:
     pass
 
-google_places = GooglePlaces(settings.PLACES_KEY)
+google_places = GooglePlaces(settings.GOOGLE_SERVER_KEY)
 
 for place in Place.objects.filter(google_rating__isnull=True):
   lng, lat = place.geopoint.tuple
