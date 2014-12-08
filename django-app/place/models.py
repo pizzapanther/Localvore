@@ -40,6 +40,12 @@ class Place(GeoModel):
   yelp_url = models.URLField(null=True,blank=True)
 
   objects = models.GeoManager()
+  
+  def desc (self):
+    return striptags(self.description)
+    
+  desc.allow_tags = True
+  
   def get_yelp(self):
     if not self.yelp_url:
       return None

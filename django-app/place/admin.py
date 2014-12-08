@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import PlaceType, Source, City, Place
 
 class PlaceAdmin(admin.ModelAdmin):
-  list_display = ('__unicode__','placetype','description')
+  list_display = ('name','placetype','desc')
   list_editable = ('placetype',)
 
 admin.site.register(PlaceType)
