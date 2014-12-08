@@ -12,7 +12,7 @@ Localvore.Guide was conceived when my wife was trying to find more information a
 
 To help local businesses grow, we see two areas of improvement. First, local businesses need help to market themselves better to sell more. And secondly, local businesses need tools and services to help them function as efficiently as a bigger businesses. Localvore.Guide starts tackling the first problem by showcasing local businesses. We've started by curating a list of businesses in Houston, TX, our home town.
 
-The hackathon theme Localvore.Guide applies to is "Problems facing our planet" because we feel keeping a thriving local economy is key to sustaining the world as software eats the world and businesses become more efficient. We need to help local businesses and entrepreneurs thrive. Localvore.Guide does this by presenting local businesses in a manner that makes them easy to find and engage with using maps and geographically sorted data.
+The hackathon theme Localvore.Guide applies to is "Problems facing our planet" because we feel keeping a thriving local economy is key to sustaining people as software eats the world and businesses become more efficient. We need to help local businesses and entrepreneurs thrive. Localvore.Guide does this by presenting local businesses in a manner that makes them easy to find and engage with using maps and geographically sorted data.
 
 ## The Tech
 
