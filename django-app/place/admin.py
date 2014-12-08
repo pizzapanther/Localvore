@@ -16,7 +16,12 @@ class PlaceAdmin(admin.ModelAdmin):
     models.PointField: {'widget': forms.TextInput(attrs={'style': 'width: 400px;'})},
   }
   
+class CityAdmin (admin.ModelAdmin):
+  formfield_overrides = {
+    models.PointField: {'widget': forms.TextInput(attrs={'style': 'width: 400px;'})},
+  }
+  
 admin.site.register(PlaceType)
 admin.site.register(Source)
-admin.site.register(City)
+admin.site.register(City, CityAdmin)
 admin.site.register(Place,PlaceAdmin)
