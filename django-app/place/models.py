@@ -38,7 +38,8 @@ class Place(GeoModel):
   source_url = models.URLField(null=True,blank=True)
   yelp_rating = models.FloatField(null=True,blank=True)
   yelp_url = models.URLField(null=True,blank=True)
-
+  google_id = models.CharField(max_length=128,null=True,blank=True)
+  google_rating = models.FloatField(null=True,blank=True)
   objects = models.GeoManager()
   
   def desc (self):
