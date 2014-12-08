@@ -14,9 +14,7 @@
           <a href="https://maps.google.com?saddr=Current+Location&daddr={{ place.address|urlencode }}%2C%20{{ place.city|urlencode }}">Get Directions &raquo;</a>
         </div>
       </div>
-      <p>
-        {{ place.description }}
-      </p>
+      <p ng-bind-html="place.description"></p>
       <div class="clear-fix"></div>
       <hr>
       <div id="map-canvas">

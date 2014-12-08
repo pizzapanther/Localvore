@@ -57,10 +57,11 @@
         <a href="/place/{{ place.id }}">{{ place.name }}</a>
       </h3>
       <div class="address">
-        <div>{{ place.address }}</div>
-        <p>
-          {{ place.description }}
-        </p>
+        <div>
+          {{ place.address }}<br>
+          {{ place.distance|number:1 }} miles away
+        </div>
+        <p ng-bind-html="place.description"></p>
       </div>
     </md-card>
     <md-card class="full pad no-results" ng-if="places.length === 0 && !loading">

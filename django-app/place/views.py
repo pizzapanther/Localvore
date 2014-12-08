@@ -23,7 +23,10 @@ def places_json (request):
   #places = places.filter(geopoint__distance_lte=(geopoint,D(mi=miles))).distance(geopoint).order_by('distance')
   places = places.distance(geopoint).order_by('distance')[:100]
   geolocator = GoogleV3()
-  return HttpResponse(dumps([p.as_json for p in places]))
+  _jsons = [p.as_json for p in places]
+  for json,place in zip(_jsons,places):
+    json['distance'] = place.distance.m*0.00062137119223733
+  return HttpResponse(dumps(_jsons))
 
 def place_detail_json (request,pk):
   place = get_object_or_404(Place,pk=pk)
