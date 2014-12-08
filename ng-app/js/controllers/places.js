@@ -2,6 +2,7 @@ var CAT_SLUGS = {};
 CAT_SLUGS['farmers-markets'] = 'Farmers Markets';
 CAT_SLUGS['stores'] = 'Stores';
 CAT_SLUGS['restaurants'] = 'Restaurants';
+CAT_SLUGS['bars'] = 'Bars';
 
 localvore.controller("PlacesCtrl", function ($scope, $routeParams, $http) {
   $scope.location = {};
