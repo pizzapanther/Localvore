@@ -70,7 +70,8 @@ class Place(GeoModel):
     return out
   @property
   def as_json(self):
-    _d = {k: getattr(self,k) for k in ['name','id','address','zipcode','url','description','source_url','yelp_rating']}
+    attrs = ['name','id','address','zipcode','url','description','source_url','yelp_rating','google_rating']
+    _d = {k: getattr(self,k) for k in attrs}
     _d['description'] = striptags(_d['description'])
     _d['geopoint'] = self.geopoint.tuple
     _d['city'] = str(self.city)
