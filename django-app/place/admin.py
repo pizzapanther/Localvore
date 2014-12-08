@@ -9,6 +9,7 @@ class PlaceAdmin(admin.ModelAdmin):
   list_editable = ('placetype',)
   list_filter = ('placetype',)
   search_fields = ('name',)
+  save_as = True
   
   raw_id_fields = ('image', 'images')
   
