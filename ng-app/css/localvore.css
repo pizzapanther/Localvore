@@ -47,6 +47,7 @@ md-card p {
 footer {
   text-align: center;
   margin: 20px auto;
+  padding: 0 20px;
   max-width: 1170px;
 }
 hr {
@@ -206,6 +207,10 @@ md-input-group.long input {
 }
 #Places .no-results {
   text-align: center;
+}
+#Places button {
+  min-width: 235px;
+  margin-bottom: 20px;
 }
 #Places h1 {
   margin-bottom: 20px;

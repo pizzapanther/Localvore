@@ -14,7 +14,7 @@ localvore.config(function ($routeProvider, $locationProvider) {
 });
 
 
-localvore.run(function ($rootScope) {
+localvore.run(function ($rootScope, $location, $window) {
   $rootScope.set_title = function (title, post_fix) {
     if (post_fix) {
       $rootScope.title = 'Localvore.Guide: ' + title;
@@ -23,6 +23,16 @@ localvore.run(function ($rootScope) {
     else {
       $rootScope.title = title + ' | Localvore.Guide';
     }
+  };
+  
+  $rootScope.set_pushstate = function (obj) {
+    console.log('Setting State:', obj, $rootScope.title, $location.path());
+    $window.history.replaceState(obj, $rootScope.title, $location.path());
+  };
+  
+  $rootScope.get_pushstate = function () {
+    console.log('Getting State:', $window.history.state);
+    return $window.history.state;
   };
 });
 

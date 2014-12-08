@@ -61,19 +61,36 @@ localvore.controller("PlacesCtrl", function ($scope, $routeParams, $http) {
   };
   
   $scope.get_places = function () {
-    $scope.loading = true;
-    $scope.places = [];
+    var state = $scope.get_pushstate();
     
-    var url = '/backend/api/places.json?lat=' + $scope.location.lat + '&lon=' + $scope.location.lon;
-    if ($scope.cat) {
-      url += '&placetype=' + $scope.cat;
+    if (state) {
+      $scope.places = state.data;
+      $scope.location = state.location
     }
     
-    $http.get(url)
-    .success(function (data) {
-      $scope.places = data;
-      $scope.loading = false;
-    });
+    else {
+      if ($scope.location.lat) {
+        $scope.loading = true;
+        $scope.places = [];
+        
+        var url = '/backend/api/places.json?lat=' + $scope.location.lat + '&lon=' + $scope.location.lon;
+        if ($scope.cat) {
+          url += '&placetype=' + $scope.cat;
+        }
+        
+        $http.get(url)
+        .success(function (data) {
+          $scope.places = data;
+          $scope.loading = false;
+          
+          $scope.set_pushstate({data: data, location: $scope.location});
+        });
+      }
+      
+      else {
+        $scope.get_location();
+      }
+    }
   };
   
   $scope.display_form = function () {
@@ -119,7 +136,7 @@ localvore.controller("PlacesCtrl", function ($scope, $routeParams, $http) {
     });
   };
   
-  $scope.get_location();
+  $scope.get_places();
 });
 
 localvore.controller("PlaceCtrl", function ($scope, $routeParams, $http, $timeout) {
@@ -133,14 +150,25 @@ localvore.controller("PlaceCtrl", function ($scope, $routeParams, $http, $timeou
     $scope.place = null;
     $scope.map = null;
     
-    var url = '/backend/api/' + $scope.id + '.json';
-    
-    $http.get(url)
-    .success(function (data) {
-      $scope.place = data;
+    var state = $scope.get_pushstate();
+    if (state) {
+      $scope.place = state;
       $scope.loading = false;
       $scope.set_title($scope.place.name);
-    });
+    }
+    
+    else {
+      var url = '/backend/api/' + $scope.id + '.json';
+      
+      $http.get(url)
+      .success(function (data) {
+        $scope.place = data;
+        $scope.loading = false;
+        $scope.set_title($scope.place.name);
+        
+        $scope.set_pushstate(data);
+      });
+    }
   };
   
   $scope.load_place();

@@ -9,14 +9,26 @@ localvore.controller("HomePageCtrl", function ($scope, $http) {
   ];
   
   $scope.get_featured = function () {
+    var state = $scope.get_pushstate();
     
-    var url = '/backend/api/featured.json';
-    $http.get(url)
-    .success(function (data) {
-      $scope.cats[0].featured = data['farmers-markets'];
-      $scope.cats[1].featured = data['stores'];
-      $scope.cats[2].restuarants = data['restuarants'];
-    });
+    if (state) {
+      $scope.cats[0].featured = state['farmers-markets'];
+      $scope.cats[1].featured = state['stores'];
+      $scope.cats[2].restuarants = state['restuarants'];
+    }
+    
+    else {
+      var url = '/backend/api/featured.json';
+      
+      $http.get(url)
+      .success(function (data) {
+        $scope.cats[0].featured = data['farmers-markets'];
+        $scope.cats[1].featured = data['stores'];
+        $scope.cats[2].restuarants = data['restuarants'];
+        
+        $scope.set_pushstate(data);
+      });
+    }
   };
   
   $scope.get_featured();
