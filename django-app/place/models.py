@@ -32,7 +32,7 @@ class Place(GeoModel):
   url = models.URLField(null=True,blank=True)
   description = models.TextField(null=True,blank=True)
   placetype = models.ForeignKey(PlaceType,null=True,blank=True)
-  images = models.ManyToManyField(Image)
+  images = models.ManyToManyField(Image,null=True,blank=True)
   image = models.ForeignKey(Image,related_name="+",null=True,blank=True)
   source = models.ManyToManyField(Source)
   source_url = models.URLField(null=True,blank=True)

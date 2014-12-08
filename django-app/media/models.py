@@ -6,6 +6,10 @@ class Image(models.Model):
   src = models.ImageField(upload_to='uploads/photos/%Y-%m', null=True,max_length=200)
   upload_dt = models.DateTimeField(auto_now_add=True)
   rejected = models.BooleanField(default=False)
+  
+  def __unicode__ (self):
+    return self.name
+    
   @property
   def as_json(self):
     return {
